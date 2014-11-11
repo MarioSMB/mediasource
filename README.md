@@ -1,4 +1,4 @@
-modpack-mediasource
-===================
+Media sources
+=============
 
-Sources for the mod pack's custom content
+All sources for the mod pack, included here for GPL compliance
