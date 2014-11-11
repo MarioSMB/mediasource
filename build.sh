@@ -90,7 +90,8 @@ function generate()
 	echo "Done!"
 }
 
-if [ "$(uname)" = Darwin ]
+SYSTEM_NAME=$(uname)
+if [ "$SYSTEM_NAME" = Darwin -o "$SYSTEM_NAME" = FreeBSD ]
 then
 	SED="sed -E"
 	JPEG_BASE="$SED 's/.{4}$//'"
