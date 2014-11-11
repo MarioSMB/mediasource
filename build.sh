@@ -54,7 +54,7 @@ function generate()
 {
 	TARGET=$2
 	SOURCE_DIR=$1
-	local SRC_FILES=$(find $SOURCE_DIR -type f)
+	local SRC_FILES=$(find $SOURCE_DIR -type f '!' -iname ".*" )
 	for src_file in $SRC_FILES
 	do
 		local out_file=$OUT_DIR/$TARGET/$(convert_paths ${src_file#$SOURCE_DIR/})
