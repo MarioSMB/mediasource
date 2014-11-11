@@ -6,6 +6,7 @@ OUT_DIR=out
 SOURCE_DIR=.
 JPEG_QUALITY=75
 SED="sed -r"
+JPEG_BASE="head -c -4"
 
 
 # Compresses images into jpegs
@@ -62,7 +63,7 @@ function generate()
 		
 		if echo -n "$src_file" | grep -Eq "\.(png|svg|tga|xcf)$"
 		then
-			local jpeg_base=$(echo -n $out_file | head -c -4)
+			local jpeg_base=$(echo -n $out_file | $JPEG_BASE)
 			if [ "$src_file" -nt "$jpeg_base.jpg" ]
 			then
 				echo -e "Compressing \x1b[1m$src_file\x1b[0m"
@@ -92,6 +93,7 @@ function generate()
 if [ "$(uname)" = Darwin ]
 then
 	SED="sed -E"
+	JPEG_BASE="$SED 's/.{4}$//'"
 fi
 
 
