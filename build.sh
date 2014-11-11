@@ -1,7 +1,6 @@
 #!/bin/bash
 
 CONVERT=convert
-SELF_DIR=$(dirname $(readlink -se "${BASH_SOURCE[0]}"))
 OUT_DIR=out
 SOURCE_DIR=.
 JPEG_QUALITY=75
@@ -94,7 +93,7 @@ SYSTEM_NAME=$(uname)
 if [ "$SYSTEM_NAME" = Darwin -o "$SYSTEM_NAME" = FreeBSD ]
 then
 	SED="sed -E"
-	JPEG_BASE="$SED 's/.{4}$//'"
+	JPEG_BASE="$SED s/.{4}$//"
 fi
 
 
@@ -103,7 +102,7 @@ for arg in $*
 do
 	case $arg in
 		clean)
-			
+			echo -e "Removing old files"
 			rm -rf "$OUT_DIR"
 			;;
 		quit)
