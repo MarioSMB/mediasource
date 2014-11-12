@@ -2,7 +2,6 @@
 
 CONVERT=convert
 OUT_DIR=out
-SOURCE_DIR=.
 JPEG_QUALITY=75
 SED="sed -r"
 JPEG_BASE="head -c -4"
@@ -48,16 +47,16 @@ function convert_paths()
 	echo "$1" | $SED "s~^hud/~gfx/hud/default/~"
 }
 
-# Create the package
-# Synopsis: generate subdir zzz-package-name
+# Create the files for packaging
+# Synopsis: generate subdir
 function generate()
 {
-	TARGET=$2
-	SOURCE_DIR=$1
-	local SRC_FILES=$(find $SOURCE_DIR -type f '!' -iname ".*" )
+	PACKAGE=$1
+	#local SRC_FILES=$(find $PACKAGE -type f '!' -iname ".*" )
+	local SRC_FILES=$(git ls-files "$PACKAGE/*")
 	for src_file in $SRC_FILES
 	do
-		local out_file=$OUT_DIR/$TARGET/$(convert_paths ${src_file#$SOURCE_DIR/})
+		local out_file=$OUT_DIR/$PACKAGE/$(convert_paths ${src_file#$PACKAGE/})
 		mkdir -p "$(dirname "$out_file")"
 		
 		if echo -n "$src_file" | grep -Eq "\.(png|svg|tga|xcf)$"
@@ -80,13 +79,26 @@ function generate()
 		echo -e "Skipping \x1b[1m$src_file\x1b[0m"
 		
 	done
+}
+
+# Create the package
+# Synopsis: package subdir [zzz-package-name-v123.pk3]
+function package()
+{
+	PACKAGE=$1
+	PK3_NAME=$2
 	
-	PK3_VERSION=$(git describe --tags || echo "unknown")
-	PK3_NAME=$TARGET-$PK3_VERSION.pk3
 	echo -e "Creating package \x1b[1m$PK3_NAME\x1b[0m"
-	( cd "$OUT_DIR/$TARGET" && zip -p "../$PK3_NAME" -r * )
+	( cd "$OUT_DIR/$PACKAGE" && zip -p "../$PK3_NAME" -r * )
 	
 	echo "Done!"
+}
+
+# Get an automatic package name (zzz-subdir-v123.pk3)
+# Synopsis: package_name subdir
+function package_name()
+{
+	echo "zzz-$1-$(git describe --tags || echo "unknown").pk3"
 }
 
 SYSTEM_NAME=$(uname)
@@ -98,17 +110,43 @@ fi
 
 
 mkdir -p "$OUT_DIR"
-for arg in $*
-do
-	case $arg in
-		clean)
-			echo -e "Removing old files"
-			rm -rf "$OUT_DIR"
-			;;
-		quit)
-			exit
-			;;
-	esac
-done
 
-generate minigames zzz-minigames
+SUBPACKAGES=$(find . -mindepth 1 -maxdepth 1 -type d '!' \( -iname '.*' -o -name out \) -exec basename {} \;)
+
+if [ -z "$1" ]
+then
+	for subdir in $SUBPACKAGES
+	do
+		generate $subdir
+		package $subdir "$(package_name $subdir)"
+	done
+fi
+
+while [ "$1" ]
+do
+	if echo "$SUBPACKAGES" | grep -xqF -e "$1"
+	then
+		subdir="$1"
+		shift 
+		pk3_name=$(package_name $subdir)
+		if [ "$1" = "-o" -a -n "$2" ]
+		then
+			pk3_name=$2
+			echo $pk3_name | grep -qE "\.pk3$" || pk3_name="$pk3_name.pk3"
+			shift 2
+		fi
+		generate $subdir
+		package $subdir "$pk3_name"
+	else
+		case $1 in
+			clean)
+				echo -e "Removing old files"
+				rm -rf "$OUT_DIR"
+				;;
+			*)
+				echo 1>&2 "Unknown option: $1"
+				;;
+		esac
+		shift
+	fi
+done
