@@ -13,7 +13,7 @@ JPEG_BASE="head -c -4"
 # Genreates output.jpg and output_alpha.jpg
 function compress_image()
 {
-	local covert_flags="-layers merge -quality $JPEG_QUALITY"
+	local covert_flags="-layers flatten -quality $JPEG_QUALITY"
 	convert -background none "$1" $covert_flags "$2.jpg"
 	convert -background none "$1" $covert_flags -alpha Extract "$2_alpha.jpg"
 }
