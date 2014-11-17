@@ -48,10 +48,11 @@ function convert_paths()
 }
 
 # Create the files for packaging
-# Synopsis: generate subdir
+# Synopsis: generate subdir [pk3name]
 function generate()
 {
 	PACKAGE=$1
+	local pk3_name="$2"
 	#local SRC_FILES=$(find $PACKAGE -type f '!' -iname ".*" )
 	local SRC_FILES=$(git ls-files "$PACKAGE/*")
 	for src_file in $SRC_FILES
@@ -69,6 +70,16 @@ function generate()
 				scale_image "$jpeg_base"
 				continue
 			fi
+		elif echo -n "$src_file" | grep -Eq "\.serverpackage$" && [ -n "$pk3_name" ]
+		then
+			local out_file="$OUT_DIR/$PACKAGE/$pk3_name.serverpackage$"
+			if [ "$src_file" -nt "$out_file" ]
+			then
+				echo -e "Creating \x1b[1m$pk3_name.serverpackage\x1b[0m"
+				cp "$src_file" "$out_file"
+				continue
+			fi
+			
 		elif [ "$src_file" -nt "$out_file" ]
 		then
 			echo -e "Copying \x1b[1m$src_file\x1b[0m"
@@ -95,10 +106,16 @@ function package()
 }
 
 # Get an automatic package name (zzz-subdir-v123.pk3)
-# Synopsis: package_name subdir
+# Synopsis: package_name subdir [version number]
 function package_name()
 {
-	echo "zzz-$1-$(git describe --tags || echo "unknown").pk3"
+	if [ -n "$2" ]
+	then
+		VERSION=$2
+	else
+		VERSION=$(git describe --tags || echo "unknown")
+	fi
+	echo "zzz-$1-$VERSION.pk3"
 }
 
 SYSTEM_NAME=$(uname)
@@ -112,6 +129,7 @@ fi
 mkdir -p "$OUT_DIR"
 
 SUBPACKAGES=$(find . -mindepth 1 -maxdepth 1 -type d '!' \( -iname '.*' -o -name out \) -exec basename {} \;)
+
 
 if [ -z "$1" ]
 then
@@ -128,14 +146,21 @@ do
 	then
 		subdir="$1"
 		shift 
-		pk3_name=$(package_name $subdir)
+		
 		if [ "$1" = "-o" -a -n "$2" ]
 		then
 			pk3_name=$2
 			echo $pk3_name | grep -qE "\.pk3$" || pk3_name="$pk3_name.pk3"
 			shift 2
+		elif [ "$1" = "-v" -a -n "$2" ]
+		then
+			pk3_name=$(package_name $subdir $2)
+			shift 2
+		else
+			pk3_name=$(package_name $subdir)
 		fi
-		generate $subdir
+		
+		generate $subdir "$pk3_name"
 		package $subdir "$pk3_name"
 	else
 		case $1 in
