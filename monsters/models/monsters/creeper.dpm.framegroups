@@ -1,0 +1,8 @@
+/*
+Generated framegroups file for creeper
+Used by DarkPlaces to simulate frame groups in DPM models.
+*/
+
+1 101 60 1 // creeper idle
+102 40 60 1 // creeper walk
+142 21 60 0 // creeper die
