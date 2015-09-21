@@ -2679,7 +2679,7 @@ airfriction 12
 originjitter 1 1 1
 velocityjitter 50 50 50
 
-effect TE_TEI_G3NEUTRAL
+effect TE_TEI_G3
 countabsolute 1
 type beam
 tex 200 200
@@ -2687,7 +2687,7 @@ color 0xFFFFFF 0xFFFFFF
 size 4 4
 alpha 128 128 256
 // experimental
-effect TE_TEI_G3NEUTRAL
+effect TE_TEI_G3
 trailspacing 4
 type static
 color 0x202020 0x404040
@@ -2698,7 +2698,7 @@ airfriction -4
 velocityjitter 8 8 8
 type smoke
 
-effect TE_TEI_G3NEUTRAL_HIT
+effect TE_TEI_G3_HIT
 countabsolute 1
 type beam
 tex 200 200
@@ -2706,7 +2706,7 @@ color 0xFFFFFF 0xFFFFFF
 size 8 8
 alpha 128 128 256
 // experimental
-effect TE_TEI_G3NEUTRAL_HIT
+effect TE_TEI_G3_HIT
 trailspacing 20
 type static
 color 0x202020 0x404040
@@ -2718,7 +2718,7 @@ airfriction -4
 velocityjitter 2 2 2
 type smoke
 // rings
-effect TE_TEI_G3NEUTRAL_HIT
+effect TE_TEI_G3_HIT
 trailspacing 40
 type static
 color 0xFFFFFF 0xFFFFFF
