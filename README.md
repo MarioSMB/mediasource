@@ -10,6 +10,7 @@ Special thanks for artwork:
 
 * Melanosuchus
 * Snow_56767
+* KingPimpCommander
 
 
 
