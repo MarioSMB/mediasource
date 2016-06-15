@@ -1,7 +1,7 @@
 Yugo CC-BY:
 
 Many thanks to Valter for the Yugo vehicle model
-Thanks to MikeeUSA for the Yugo hovercraft modifications
+Thanks to MikeeUSA for the Yugo hovercraft modifications and chainsaw model
 Finally to Mario for producing terrible HUD icons for it
 
 
