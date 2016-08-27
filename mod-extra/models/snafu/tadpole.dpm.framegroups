@@ -1,0 +1,12 @@
+/*
+Generated framegroups file for tadpole
+Used by DarkPlaces to simulate frame groups in DPM models.
+*/
+
+1 101 30 1 // tadpole idle
+102 11 30 0 // tadpole pain1
+113 11 30 0 // tadpole pain2
+124 11 30 0 // tadpole pain3
+135 11 30 0 // tadpole pain4
+146 11 30 0 // tadpole pain5
+157 51 30 0 // tadpole die

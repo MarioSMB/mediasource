@@ -1,0 +1,19 @@
+/*
+Generated framegroups file for fatone
+Used by DarkPlaces to simulate frame groups in DPM models.
+*/
+
+1 41 15 1 // fatone idle
+42 34 30 1 // fatone run
+76 33 30 1 // fatone walkheadless
+109 41 30 0 // fatone fallonass
+150 19 30 0 // fatone throw
+169 19 30 0 // fatone stab1
+188 19 30 0 // fatone stab2
+207 11 30 0 // fatone pain1
+218 11 30 0 // fatone pain2
+229 11 30 0 // fatone pain3
+240 45 30 0 // fatone die1
+285 3 30 0 // fatone dead1
+288 53 30 0 // fatone die2
+341 3 30 0 // fatone dead2
