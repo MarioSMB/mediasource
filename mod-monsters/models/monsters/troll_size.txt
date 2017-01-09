@@ -1,0 +1,3 @@
+rough size of the model for ingame purposes
+maxs 45 45 160
+mins -45 -45 -24

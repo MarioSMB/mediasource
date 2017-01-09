@@ -1,0 +1,9 @@
+//TAG: creeper
+death sound/monsters/creeper/death 0
+//sight sound/monsters/creeper/sight 0
+ranged sound/monsters/creeper/ranged 0
+//melee sound/monsters/creeper/melee 0
+pain sound/monsters/creeper/pain 4
+//spawn sound/monsters/creeper/spawn 0
+//idle sound/monsters/creeper/idle 0
+attack sound/monsters/creeper/explode 4
