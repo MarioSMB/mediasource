@@ -8777,3 +8777,13 @@ effect g_dotc_rart_pexplode
 	tex 66 68
 	velocityjitter 124 124 324
 	velocityoffset 0 0 400
+effect flak_trail
+	type static
+	alpha 256 256 968
+	color 0x804000 0x804000
+	lightcolor 1.5 3 6
+	lightradius 90
+	size 3 3
+	tex 62 62
+	trailspacing 12
+	velocitymultiplier -0.100000
