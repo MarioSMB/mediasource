@@ -1,18 +1,1 @@
-Yugo CC-BY:
-
-Many thanks to Valter for the Yugo vehicle model
-Thanks to MikeeUSA for the Yugo hovercraft modifications and chainsaw model
-Finally to Mario for producing terrible HUD icons for it
-
-
-Conquest (GPLv2+):
-
-Thanks to Morphed for the amazing high quality Conquest art and models
-
-
-TankLL48 (CC0)
-
-Credit is not needed, but here we will thank Coolinus for his hard work
-
-
 Thanks to forseti for his consistent contributions with artwork and icons

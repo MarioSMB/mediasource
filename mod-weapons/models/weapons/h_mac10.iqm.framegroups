@@ -1,0 +1,9 @@
+/*
+Generated framegroups file for h_mac10
+Used by DarkPlaces to simulate frame groups in DPM models.
+*/
+
+1 9 90 0 // h_mac10 fire
+10 9 80 0 // h_mac10 fire2
+19 301 5 1 // h_mac10 idle
+320 51 30 0 // h_mac10 reload
