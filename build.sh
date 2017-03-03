@@ -54,7 +54,7 @@ function generate()
 	PACKAGE=$1
 	local pk3_name="$2"
 	#local SRC_FILES=$(find $PACKAGE -type f '!' -iname ".*" )
-	local SRC_FILES=$(git ls-files "$PACKAGE/*" -x "sources/*")
+	local SRC_FILES=$(git ls-files "$PACKAGE/*" -x "$PACKAGE/sources/*")
 	for src_file in $SRC_FILES
 	do
 		local out_file=$OUT_DIR/$PACKAGE/$(convert_paths ${src_file#$PACKAGE/})
