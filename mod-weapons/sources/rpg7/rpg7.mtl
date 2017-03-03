@@ -1,0 +1,14 @@
+# Blender MTL File: 'models-weapons-rpg7-GuillaumeCote_rpg-7-eds.blend'
+# Material Count: 1
+
+newmtl rpgtex
+Ns 64.705882
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Bump F:\\Downloads\\textures\\spec.jpg
+map_Kd F:\\Downloads\\textures\\diff.jpg
