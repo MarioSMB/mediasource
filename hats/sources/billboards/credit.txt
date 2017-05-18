@@ -3,3 +3,4 @@ Original model from Xonotic mediasource (crylink_simple.blend)
 Image sources:
 
 smile: https://openclipart.org/detail/279689/smiley-face-yellow
+trump: https://openclipart.org/detail/256533/donald-trump-cartoon-2
