@@ -1,9 +1,9 @@
 // great
 textures/great
 {
+	cull none
 	nopicmip
 	//nomipmaps
-	cull none
 	{
 		map textures/great
 	}

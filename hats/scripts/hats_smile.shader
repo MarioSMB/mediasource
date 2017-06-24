@@ -2,8 +2,8 @@
 textures/smile
 {
     //cull none
-    surfaceparm nopicmip
-	surfaceparm notrans
+    nopicmip
+    nomipmaps
 	{
 		map textures/smile
 		//depthWrite

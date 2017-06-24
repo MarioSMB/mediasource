@@ -1,9 +1,9 @@
 // pigi
 textures/pigi
 {
-	nopicmip
-	surfaceparm notrans
 	cull none
+	nopicmip
+    nomipmaps
 	{
 		map textures/pigi
 	}

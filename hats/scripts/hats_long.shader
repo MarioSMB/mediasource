@@ -2,8 +2,8 @@
 textures/long
 {
     cull none
-    surfaceparm nopicmip
-	surfaceparm notrans
+    nopicmip
+    nomipmaps
 	{
 		map textures/long
 		//depthWrite

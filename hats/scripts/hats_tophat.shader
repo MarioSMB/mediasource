@@ -2,8 +2,8 @@
 textures/tophat
 {
     cull none
-    surfaceparm nopicmip
-	surfaceparm notrans
+    nopicmip
+    nomipmaps
 	{
 		map textures/tophat
 		//depthWrite
@@ -14,8 +14,8 @@ textures/tophat
 textures/tophat_collar
 {
     cull none
-    surfaceparm nopicmip
-	surfaceparm notrans
+    nopicmip
+    nomipmaps
 	{
 		map textures/tophat_collar
 		//depthWrite
@@ -26,8 +26,8 @@ textures/tophat_collar
 textures/tophat_logo
 {
     cull none
-    surfaceparm nopicmip
-	surfaceparm notrans
+    nopicmip
+    nomipmaps
 	{
 		map textures/tophat_logo
 		//depthWrite

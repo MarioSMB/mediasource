@@ -2,8 +2,8 @@
 textures/trump
 {
     //cull none
-    surfaceparm nopicmip
-	surfaceparm notrans
+    nopicmip
+    nomipmaps
 	{
 		map textures/trump
 		//depthWrite

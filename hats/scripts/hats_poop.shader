@@ -2,8 +2,8 @@
 textures/poop
 {
     //cull none
-    surfaceparm nopicmip
-	surfaceparm notrans
+    nopicmip
+    nomipmaps
 	{
 		map textures/poop
 		//depthWrite

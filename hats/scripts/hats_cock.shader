@@ -2,8 +2,8 @@
 textures/cock
 {
     cull none
-    surfaceparm nopicmip
-	surfaceparm notrans
+    nopicmip
+    nomipmaps
 	{
 		map textures/cock
 		//depthWrite
