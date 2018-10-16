@@ -1,0 +1,18 @@
+
+# save the model as smg.dpm
+model h_mac10
+# move the model this much before saving
+# numbers are for: front/back, sides, top/bottom
+origin -24 11 20
+# rotate the model 0 degrees around vertical
+rotate 0
+# scale the model by this amount, 0.5 would be half size and 2.0 would be doule size
+scale 1
+# load the mesh file, this is stored into the dpm as frame 0
+framegroups
+scene mesh.SMD
+scene fire.smd fps 90 noloop
+scene fire2.smd fps 80 noloop
+scene idle.smd fps 5 
+scene reload.smd fps 30 noloop
+
