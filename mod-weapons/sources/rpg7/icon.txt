@@ -1,0 +1,7 @@
+RPG-7 icon downloaded from http://getdrawings.com/rocket-launcher-icon#rocket-launcher-icon-2.png
+CC BY-NC 4.0 Licence
+
+Code for attribution:
+<a href="http://getdrawings.com/rocket-launcher-icon">Rocket Launcher Icon</a>
+
+Icon modified to suit Xonotic's needs (addition of glow effect)
