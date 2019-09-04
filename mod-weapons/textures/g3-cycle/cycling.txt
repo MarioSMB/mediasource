@@ -1,0 +1,7 @@
+H: solid noise, detail=10, x=1, y=1, tilable, then stretch contrast
+S, V: 1
+
+Then run:
+for i in `seq 1 39`; do
+	convert cycling.png  -modulate 100,100,$(($i * 5 + 100)) cycling-$i.png
+done

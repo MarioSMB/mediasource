@@ -1,0 +1,7 @@
+The firearm sound library was the brainchild of a team of college students with a mutual passion for the audio and  visual arts. In November, 2013 we launched a Kickstarter campaign to develop an extensive open source firearm sound effects library, and on December 7, 2013 our project was funded by an incredible group of backers and we went into full tilt production. This website serves to connect our backers with our two libraries, as well as to give credit to the backers who made it all possible.
+
+Along with the availability of these sounds comes the need to understand their proper application. The metadata included in the sound files along with some instructional videos will help make these sounds serve you to their full potential.
+
+Our team holds CC0 NO RIGHTS RESERVED for this library. It may be used without royalty or credit (though we would love to hear how you've used our sounds) for any application, personal or professional. Have at it!
+
+These sounds were created and recorded by Ben Jaszczak, Brian Nelson, Kevin Heras, and Matthew Nanney, and are available here: http://freefirearmsfx.com
