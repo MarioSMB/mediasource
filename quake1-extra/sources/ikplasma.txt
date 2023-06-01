@@ -1,0 +1,163 @@
+Title    : PLASMA GUN for Quake, plus a new trigger...
+
+Filename  : IKPLASMA.ZIP
+Version   : 1.2
+
+Date      : 1/30/97
+
+Author    : Iikka "Fingers" Ker„nen
+            (View this file in DOS to see my name properly!! Windoze suxx..)
+
+Email     : ikeranen@raita.oulu.fi
+
+Web Page  : http://www.student.oulu.fi/~ikeranen
+
+Credits   : ID, Brian Martin (MedDLe)
+
+
+** Type of Mod **
+
+Quake C  : yes
+Sound    : yes
+MDL      : yes
+Test map : yes (2 DM starts for testing, some monsters)
+
+
+** Format of Quake C **
+
+unified diff  : no
+context diff  : no
+.qc files     : yes
+progs.dat     : yes
+
+I have included all necessary .qc files, including the modified ones.
+They have comments that should help you to understand them... Plasma.qc
+contains most of the stuff needed for this gun, but I had to modify some
+others to make everything work OK. The thunder.qc contains a new trigger,
+see it in action in the example level.
+
+** Description of the Modification **
+
+This is the plasma gun from Doom and Doom2, converted to Quake style.
+It does NOT replace any of the original weapons, so your levels not
+designed for plasma gun remain unchanged.
+
+Plasma gun features:
+
+* New models for plasma gun from scratch! They look as cool as the original
+  weapons; I spent nights making those textures...
+
+* Original plasma gun sounds from Doom.
+
+* Maximum amount of cells is 200, and plasma shoots thrice with one cell.
+  This makes the total amount of plasma shots as high as 600! You can chase
+  people, firing this gun through all the level in deathmatch... It takes
+  a full minute to shoot 600 times. (Hehe, I used to do that in Doom...)
+
+* Damage similar to Doom plasma: Grunts die usually for one hit, but if they
+  survive the first they may get gibbed on the second... :)
+
+* 50% change to gib a zombie per shot; makes the gun useful against them.
+  A long burst always gibs a zombie... 
+
+* Quad damage makes this gun an ultimate gibber.
+
+* Plasma is basically electrically charged something that flies off this gun;
+  doing that underwater is unhealthy. Much more satisfacting is to shoot some
+  plasma into water when somebody else is down there. ;)
+
+* Impulse 9 (cheatcommand) gives you this gun as well as others, but NO KEYS,
+  so all those levels work where a key works as a trigger.
+
+* Impulse 15 selects this weapon. When you use the weapon cycle key, it's
+  between rocket launcher and lightning gun. I have included a .cfg file to
+  bind number 8 for plasma... 9 is lightning gun. (because the lightning gun
+  feels somehow heavier..)
+
+* When making a level, put "weapon_plasmagun" somewhere to be collected...
+  I have included a tiny level just to show you how it looks like. I'll
+  make more levels later, and I hope you'll do some too.
+
+This gun is meant to be a ruler weapon. It is overpowered and doesn't eat
+ammo too fast. BUT, you only get 15 cells (45 shots) with this gun, and it's
+not really many (a few seconds burst). If you don't spread too much cells in
+your levels, it can keep well balanced. Basically, use the plasma like you
+could use the lightning gun.
+
+The only disadvantages of this gun are it's unability to work underwater, and
+the relatively low speed (compared to lightnings...). OK, it's as fast as
+nails, but you can see plasma bullets from a long distance (when you still
+have time to dodge it).
+
+** How to use Modification **
+
+Press the button with command "impulse 15" to select the gun. In the
+included .cfg file this button is number 8. (Of course it doesn't work
+if you haven't cheated or collected the gun.)
+
+When you have selected the gun, aim towards the closest enemy and press
+fire until it dies.
+
+** How to Install the Modification **
+
+Create a directory within the Quake directory called IKPLASMA.
+
+Unzip the files from IKPLASMA.ZIP into that directory, by typing
+"PKUNZIP -d IKPLASMA" in that directory.
+
+Start Quake by typing: "QUAKE -GAME IKPLASMA +MAP PLASMAEX"
+
+** Technical Details **
+
+Most of the new QuakeC is in PLASMA.QC, but I needed to modify some other
+files. The modifications are marked by comments, and each modified file
+contains descriptions about the modifications. I have included PROGS.SRC
+file to show in which order the files should be compiled.
+
+I have used variable PARM10 to contain information about plasma gun, as
+it seems to be used nowhere else (???). That was the only way I could
+move the new gun from a level to another, and it allows me to do several
+other new weapons into the same patch in the future.
+
+The new variable (self).moreitems is used to store the plasma gun, and
+more weapons in the future. When it contains number 1 (bit 0), the entity
+(player/backpack) has a plasmagun. This number is in constant IT_PLASMAGUN.
+
+When you select the plasmagun, the self.weapon is changed to IT_PLASMAWEP,
+which is 128 at the moment.
+
+I may try to do this stuff simpler in later releases. (Perhaps I'll store
+all the old and new guns in a new variable like "self.gunitems" or something)
+
+Known Bugs:
+
+There's still none. I have even fixed some bugs that didn't exist. :)
+
+** Future Enhancements **
+
+* More Guns. I've planned making stuff like Vulcan Cannon, land mines and
+  Hand Grenades like in Dark Forces (you can decide how fast you throw it)
+
+* Better animation for the v_plasma... OK, it does look cool already, but
+  perhaps not as cool as in Doom? (Adding the hand would be a major rework
+  as it'd surely need more vertices/triangles)
+
+Don't think you'll get all this tomorrow. I have lots of other things to
+do as well...
+
+** Copyright and Distribution Permissions **
+
+Authors MAY use these modifications as a basis for other
+publically available work.  When you have made something all
+your friends find cool, tell me about it and I may get interested. :)
+
+You may distribute this Quake modification in any electronic
+format as long as this description file remains intact and unmodified
+and is retained along with all of the files in the archive.
+
+If you're going to include this modification in a commercial product, such
+as a collection CD, You will need to ask me first. If it sounds interesting
+enough, you'll have to send me a copy of your product. :)
+
+Finally I found out what the Actura software is, and what they have done.
+Thus, Actura Software may not use these files for anything!
